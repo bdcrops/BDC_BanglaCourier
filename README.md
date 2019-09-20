@@ -1,6 +1,7 @@
 # BDC_BanglaCourier
 
 This module is used as Offline Shipping methods of  Magento 2 extensions.
+Customize Checkout Add custom shipping carrier.
 
 
 
@@ -309,3 +310,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
 selected in the Shipping step, as follows:
 
 ![](docs/BanglaShippingChkout.png)
+
+
+## Ref
+[devdocs](https://devdocs.magento.com/guides/v2.3/howdoi/checkout/checkout-add-custom-carrier.html)
