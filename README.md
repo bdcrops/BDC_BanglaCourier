@@ -40,6 +40,11 @@ php bin/magento setup:di:compile
 
 ## 2 Manual Tutorial
 
-![](docs/BanglaShippingChkout.png)
+- Admin Panel Sales & Shipping section Show as below:
 ![](docs/BanglaCourierAdmin1.png)
 ![](docs/BanglaCourierAdmin2.png)
+
+- The Order Summary section of the Review & Payments step should also reflect on the method
+selected in the Shipping step, as follows:
+
+![](docs/BanglaShippingChkout.png)
