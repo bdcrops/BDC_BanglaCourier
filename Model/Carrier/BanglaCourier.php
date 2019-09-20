@@ -3,19 +3,14 @@
 namespace BDC\BanglaCourier\Model\Carrier;
 
 class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier implements
-    \Magento\Shipping\Model\Carrier\CarrierInterface
-{
+    \Magento\Shipping\Model\Carrier\CarrierInterface {
     const CARRIER_CODE = 'banglacourier';
-
     const BANGLA_COURIER_STANDARD = 'banglacourierstandard';
     const BANGLA_COURIER_48HR = 'banglacourier48hr';
 
     protected $_code = self::CARRIER_CODE;
-
     protected $_isFixed = true;
-
     protected $_rateResultFactory;
-
     protected $_rateMethodFactory;
 
     /**
@@ -35,8 +30,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
         \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory,
         \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory,
         array $data = []
-    )
-    {
+    ){
         $this->_rateResultFactory = $rateResultFactory;
         $this->_rateMethodFactory = $rateMethodFactory;
         parent::__construct($scopeConfig, $rateErrorFactory, $logger, $data);
@@ -45,21 +39,15 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
     /**
      * {@inheritdoc}
      */
-    public function collectRates(\Magento\Quote\Model\Quote\Address\RateRequest $request)
-    {
-
+    public function collectRates(\Magento\Quote\Model\Quote\Address\RateRequest $request){
         if (!$this->getConfigFlag('active')) {
             return false;
         }
-
-
         // $request->getPackageWeight();
         // $request->getPackageValue()
 
         // Init result object
         $result = $this->_rateResultFactory->create();
-
-
         if ($request->getAllItems()) {
             foreach ($request->getAllItems() as $item) {
                 if ($item->getProduct()->isVirtual() || $item->getParentItem()) {
@@ -101,8 +89,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
      *
      * @return array
      */
-    public function getAllowedMethods()
-    {
+    public function getAllowedMethods(){
         return [
             self::BANGLA_COURIER_STANDARD => $this->getConfigData(self::BANGLA_COURIER_STANDARD . '/title'),
             self::BANGLA_COURIER_48HR => $this->getConfigData(self::BANGLA_COURIER_48HR . '/title'),
@@ -114,8 +101,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
      * @param $method
      * @return false|string
      */
-    private function getMethodTitle($method)
-    {
+    private function getMethodTitle($method){
         return $this->getConfigData($method . '/title');
     }
 
@@ -123,8 +109,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
      * @param $method
      * @return false|string
      */
-    private function getMethodPrice($method)
-    {
+    private function getMethodPrice($method){
         return $this->getMethodCost($method);
     }
 
@@ -132,8 +117,7 @@ class BanglaCourier extends \Magento\Shipping\Model\Carrier\AbstractCarrier impl
      * @param $method
      * @return false|string
      */
-    private function getMethodCost($method)
-    {
+    private function getMethodCost($method){
         return $this->getConfigData($method . '/shippingcost');
     }
 }
