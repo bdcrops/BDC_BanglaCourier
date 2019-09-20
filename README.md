@@ -313,4 +313,4 @@ selected in the Shipping step, as follows:
 
 
 ## Ref
-[devdocs](https://devdocs.magento.com/guides/v2.3/howdoi/checkout/checkout-add-custom-carrier.html)
+- [Devdocs](https://devdocs.magento.com/guides/v2.3/howdoi/checkout/checkout-add-custom-carrier.html)
